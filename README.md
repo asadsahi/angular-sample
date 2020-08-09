@@ -1,27 +1,14 @@
-# AngularSample
+Create a Product crud application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
+- Create product module
+- Create product service with get Product in array
+- Create product list componet, print all products from product service by injecting
+- Create product component, which will print one product by taking product as Input from product list component
+- app-product will contain methods to delete product, which will emit event to app-product-list to remove product from product service products array
+- app-product-list will have an input to take product name and will create a new product with last id in products array + 1 
+- app-product-list will have an update method which will 
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+<app-product-list>
+    <app-product-item *ngFor="let product of products" [product]="product" (delete)="onDelete($event)" (update)="onUpdate($event)">
+    </app-product-item>
+</app-product-list>
